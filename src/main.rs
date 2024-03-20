@@ -75,9 +75,10 @@ fn main() {
     // then converting the string data to Vec<Monitor>;
     let mut monitors_data: Monitors = serde_json::from_str(&contents).expect("Failed to convert data");
 
-    // i am looping for 10 times to process monitor,
-    // in the process monitor after storing the updating montiors,
-    // it will sleep for 30 seconds, that means (10*30) = 5 minutes the loop will remaining;
+    // Looping 10 times to process monitors:
+    // In each iteration, the `process_monitor` function updates the monitors and stores the updated data.
+    // After each update, the loop pauses for 30 seconds.
+    // Therefore, the total duration of the loop is 10 * 30 seconds = 5 minutes.
     for _ in 0..10 {
         process_monitor(&mut monitors_data);
     }
